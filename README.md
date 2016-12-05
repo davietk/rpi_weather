@@ -1,6 +1,6 @@
 # RPI Weather #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+
 
 ### Pré-requis ###
 
@@ -9,12 +9,9 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Script Pyhton ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+
+
+
 
 ### InfluxDB ###
 
@@ -44,10 +41,6 @@ CREATE USER "influx" WITH PASSWORD 'influx'
 CREATE DATABASE "weather"
 ```
 
-
-* Writing tests
-* Code review
-* Other guidelines
 
 ### Grafana ###
 
