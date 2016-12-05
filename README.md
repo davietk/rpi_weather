@@ -44,7 +44,7 @@ CREATE DATABASE "weather"
 
 ### Grafana ###
 
-Commande docker pour lancement de la bdd : 
+Commande docker pour lancement du dashboard : 
 ```
 #!shell
 
