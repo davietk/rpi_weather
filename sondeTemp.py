@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import os
 import glob
@@ -31,8 +32,9 @@ def read_temp():
 
 try:
 	while True:
-		print(read_temp()[0])
-		time.sleep(0.3)
+		print ('----------------------')
+		print('Temperature : ' + str(read_temp()[0]) + '°C')
+		time.sleep(5)
 except KeyboardInterrupt:
 	sys.exit(0)
 
