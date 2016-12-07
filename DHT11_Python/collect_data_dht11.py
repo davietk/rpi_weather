@@ -8,7 +8,8 @@ import RPi.GPIO as GPIO
 import dht11
 import sys
 
-#from influxdb import client as influxdb
+# from influxdb import client as influxdb
+from influxdb import InfluxDBClient
 
 # Interval de capture
 capture_interval = 10.0
@@ -22,7 +23,7 @@ GPIO.cleanup()
 instance = dht11.DHT11(pin=4)
 
 # InfluxDB instance
-db = influxdb.InfluxDBClient('192.168.0.78', 8086, 'influx', 'influx', 'weather')
+db = InfluxDBClient('192.168.0.78', 8086, 'influx', 'influx', 'weather')
 
 # Horloge
 def dateClock():
@@ -78,6 +79,8 @@ try:
     
 except KeyboardInterrupt:
   pass
+  sys.exit(0)
+  GPIO.cleanup()
 finally:
   GPIO.cleanup()
-  sys.exit(0)
+

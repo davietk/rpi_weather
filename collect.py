@@ -16,7 +16,8 @@ capture_interval = 10.0 # Every 60 seconds
 
 # Establishes a connection to the mcp9808_test
 # InfluxDB instance
-db = influxdb.InfluxDBClient('192.168.99.100', 8086, 'influx', 'influx', 'weather')
+#db = influxdb.InfluxDBClient('192.168.99.100', 8086, 'influx', 'influx', 'weather')
+db = influxdb.InfluxDBClient('192.168.0.78', 8086, 'influx', 'influx', 'weather')
 
 # Read, Report, Repeat
 while True:
@@ -36,5 +37,5 @@ while True:
     }
   ]
   db.write_points(data)
-  print ("Temperature : "+format(temp)+"°C")
+  print ("Temperature : "+format(temp)+" C")
   time.sleep(capture_interval)
