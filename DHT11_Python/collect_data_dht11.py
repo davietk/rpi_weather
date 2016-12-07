@@ -61,6 +61,7 @@ try:
         "tags": {
         "device": "rpi01",
         },
+        "time": "2016-12-07T23:00:00Z",
         "fields": {
         "value": int(temperature)
         }

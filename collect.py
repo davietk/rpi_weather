@@ -3,7 +3,8 @@ import time
 import datetime
 import random
 # import Adafruit_MCP9808.MCP9808 as MCP9808
-from influxdb import client as influxdb
+#from influxdb import client as influxdb
+from influxdb import InfluxDBClient
 
 # Initializes comminication with the MCP9808
 # over the I2C bus.
@@ -17,7 +18,7 @@ capture_interval = 10.0 # Every 60 seconds
 # Establishes a connection to the mcp9808_test
 # InfluxDB instance
 #db = influxdb.InfluxDBClient('192.168.99.100', 8086, 'influx', 'influx', 'weather')
-db = influxdb.InfluxDBClient('192.168.0.78', 8086, 'influx', 'influx', 'weather')
+db = InfluxDBClient('192.168.0.78', 8086, 'influx', 'influx', 'weather')
 
 # Read, Report, Repeat
 while True:
