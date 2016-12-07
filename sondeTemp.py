@@ -4,6 +4,7 @@
 import os
 import glob
 import time
+import sys
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -21,7 +22,7 @@ def read_temp_raw():
 def read_temp():
     lines = read_temp_raw()
     while lines[0].strip()[-3:] != 'YES':
-        time.sleep(0.2)
+        time.sleep(0.5)
         lines = read_temp_raw()
     equals_pos = lines[1].find('t=')
     if equals_pos != -1:
