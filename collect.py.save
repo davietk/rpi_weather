@@ -1,0 +1,41 @@
+#!/usr/bin/python
+import time
+import datetime
+import random
+# import Adafruit_MCP9808.MCP9808 as MCP9808
+from influxdb import client as influxdb
+
+# Initializes comminication with the MCP9808
+# over the I2C bus.
+# sensor = MCP9808.MCP9808()
+# sensor.begin()
+
+# Defines the interval on which the capture logic
+# will occur
+capture_interval = 10.0 # Every 60 seconds
+
+# Establishes a connection to the mcp9808_test
+# InfluxDB instance
+#db = influxdb.InfluxDBClient('192.168.99.100', 8086, 'influx', 'influx', 'weather')
+db = influxdb.InfluxDBClient('192.168.0.78', 8086, 'influx', 'influx', 'weather')
+
+# Read, Report, Repeat
+while True:
+  # temp = sensor.readTempC()
+  temp = random.randint(0,35)
+  now = datetime.datetime.today()
+c  # influxClient.write_points(temperature_data(temp))
+  data = [
+    {
+      "measurement": "temperature.readings",
+      "tags": {
+        "device": "rpi01",
+      },
+      "fields": {
+        "value": int(temp)
+      }
+    }
+  ]
+  db.write_points(data)
+  print ("Temperature : "+format(temp)+"°C")
+  time.sleep(capture_interval)
