@@ -10,6 +10,13 @@
 ### Script Pyhton ###
 
 
+**Installation du module Python**
+```
+#!shell
+
+pip install influxdb
+
+```
 
 
 
