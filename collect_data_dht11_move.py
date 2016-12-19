@@ -12,7 +12,7 @@ import sys
 from influxdb import InfluxDBClient
 
 # Interval de capture
-capture_interval = 10.0
+capture_interval = 5.0
 
 # Initialize GPIO
 GPIO.setwarnings(False)
@@ -23,7 +23,7 @@ GPIO.cleanup()
 instance = dht11.DHT11(pin=4)
 
 # InfluxDB instance
-db = InfluxDBClient('192.168.0.78', 8086, 'influx', 'influx', 'weather')
+db = InfluxDBClient('localhost', 8086, 'influx', 'influx', 'weather')
 
 # Horloge
 def dateClock():
@@ -61,9 +61,17 @@ try:
         "tags": {
         "device": "rpi01",
         },
-        "time": "2016-12-07T23:00:00Z",
         "fields": {
         "value": int(temperature)
+        }
+      },
+      {
+        "measurement": "humidity.readings",
+        "tags": {
+        "device": "rpi01",
+        },
+        "fields": {
+        "value": int(humidity)
         }
       }
       ]
