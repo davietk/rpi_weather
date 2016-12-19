@@ -14,7 +14,7 @@
 ```
 #!shell
 
-pip install influxdb
+sudo pip install influxdb
 
 ```
 
